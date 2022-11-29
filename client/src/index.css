@@ -1,0 +1,26 @@
+
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+   .card {
+     background-color: theme('colors.white');
+     border-radius: theme('borderRadius.lg');
+    
+     box-shadow: theme('boxShadow.xl');
+   }
+   /* ... */
+ }

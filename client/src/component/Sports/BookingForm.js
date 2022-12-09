@@ -3,7 +3,7 @@ import Modal from '../UI/Modal'
 import axios from "axios";
 const URL = "http://localhost:4000";
 const BookingForm = (props) => {
-
+    
     //  const [isBooked, setisBooked] = useState(true);
     let isBooked = false;
     const [bookingDetail, setBookingDetail] = useState({ player_count: "", date: "", startTime: "", endTime: "" });
@@ -81,6 +81,7 @@ const BookingForm = (props) => {
             return ({ player_count: "", date: "", startTime: "", endTime: "" })
         })
         setError({});
+        
     }
 
 
@@ -94,7 +95,7 @@ return (
             :
             <form onSubmit={onSubmitHandler} className="relative max-w-[400px] w-full mx-auto   bg-gray-900 p-6 px-8  border-4 border-white shadow-lg shadow-white ">
                
-              {!error.length  && <div className='text-red-600 text-center'> {error.Status} </div> } 
+              {!error.length  && <div className='text-red-600 text-center text-xl font-bold'> {error.Status} </div> } 
                 <button className='absolute top-4 right-4' onClick={props.onCloseForm}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className=" bg-white bi bi-x" viewBox="0 0 16 16">
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
@@ -118,7 +119,7 @@ return (
                     <input required={true} className='rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' id="endTime" type="number" min="9" max="17" onChange={onChangeHandler} value={bookingDetail.endTime} placeholder="Enter End Time " />
                 </div>
 
-                <button className=' mt-2 p-1 w-full bg-red-600  text-white font-semibold rounded-lg hover:bg-gray-300 '>
+                <button className=' mt-2 p-1 w-full bg-green-600  text-white font-semibold rounded-lg hover:bg-gray-300 hover:text-black '>
                     Book
                 </button>
 

@@ -1,5 +1,6 @@
 import React  , {useState} from 'react'
 import { useNavigate  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 const URL = "http://localhost:4000";
 const Register = () => {
@@ -99,7 +100,8 @@ const Register = () => {
             </div>
 
             <button  type='submit' className='w-full my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500/40 text-white font-semibold rounded-lg'>SIGNUP</button>
-
+            <Link className='text-white text-sm hover:text-red-700' to="/"> SignIn </Link>
+            <div className='text-center text-white'>copyright @ 2022 </div> 
           </form>
 
            {/* <div className='max-w-[400px] '>

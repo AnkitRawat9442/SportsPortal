@@ -1,14 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SportItem = (props) => {
-   
-    
+     
+  const navigate = useNavigate();
+          
           const onClickHandler = ()=>{
-            props.onShowForm();
-            props.sports(props.sport.name)
+           //  props.onShowForm();
+         //    props.sports(props.sport.name)
+          props.SportHandler(props.sport.name)
+            navigate('/sportItemBoard');
           }
-   
-    
+       
+          
     return (
         <div className='card  text-center  p-2 w-60 h-60 flex flex-col justify-between  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 '>
             <div className=' w-full flex justify-center  ' >   <img className='card rounded-full w-32 h-32 ' src={props.sport.src} alt="no game " /> </div>
@@ -20,6 +24,9 @@ const SportItem = (props) => {
            
           
            </div>
+
+       
+
         </div>
     )
   

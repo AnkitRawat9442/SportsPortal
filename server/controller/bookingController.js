@@ -13,6 +13,37 @@ const player_count = {
     Basketball: 10,
 };
 
+
+async function BookedSports(req, res, next) {
+        const { sport , college} = req.query;
+    console.log(sport)
+    console.log(college)
+    
+    const date = new Date(); 
+
+    // await College.find({ collegeName: college, sportsName: sport }).then((result) => {
+    //     console.log(result) 
+    //     if(result.length ===  0) {
+    //         res.status(200).json("No booking");
+    //        }
+    //     res.status(200).json(result);
+      
+    // }).catch(err=>console.log(err));
+   
+    
+    await College.find({ collegeName: college, sportsName: sport }).sort({date : -1}).then((result) => {
+        console.log(result) 
+        if(result.length ===  0) {
+            res.status(200).json("No booking");
+           }
+        res.status(200).json(result);
+      
+    }).catch(err=>console.log(err));
+   
+   // res.json("yess...");
+       
+}
+
 async function addBooking(req, res, next) {
     const { id, sport, players, collegeName, startTime, endTime, date } = req.body;
     console.log(req.body)
@@ -78,4 +109,5 @@ async function addBooking(req, res, next) {
 
 module.exports = {
     addBooking,
+    BookedSports
 };

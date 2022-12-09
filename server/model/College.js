@@ -24,6 +24,10 @@ const collegeSchema = new mongoose.Schema({
     bookedBy : {
         type : String ,
         required : true
+    },
+    Status : {
+        type : String ,
+        default : "Booked" 
     }
    
     

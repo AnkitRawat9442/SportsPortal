@@ -13,7 +13,7 @@ const Header = (props) => {
                 <div className='flex flex-row  gap-3 w-16 h-16 p-1 ml-2'>
                   <img src={graphic_logo} alt="logo of graphic era" />
                 
-                    <div className='text-red-800'>Graphic <span className='text-black'> Era</span> </div>
+                    <div className='text-red-800 text-xl font-bold'>Graphic <span className='text-black'> Era</span> </div>
                   
                </div>
                 <div className='flex flex-row  justify-center items-center  gap-4 mr-10'>
@@ -22,7 +22,7 @@ const Header = (props) => {
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                             <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                         </svg>
-                        <span> {props.username} </span>
+                        <span className='font-semibold'> {props.username} </span>
                     </div>
                     <button  onClick={props.onLogout} className='bg-red-600 text-white rounded-lg px-4 p-1'>  Log out </button>
                 </div>

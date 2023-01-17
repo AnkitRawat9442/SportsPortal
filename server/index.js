@@ -35,4 +35,4 @@ mongoose.connect(
 app.use("/api/user", authRoute);
 app.use("/api/booking", bookRoute);
 
-app.listen(4000, () => console.log("server is running 4000"));
+app.listen(process.env.PORT ||  4000, () => console.log("server is running 4000"));

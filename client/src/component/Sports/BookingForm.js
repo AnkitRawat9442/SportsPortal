@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Modal from '../UI/Modal'
 import axios from "axios";
-const URL = "http://localhost:4000";
+const URL = "https://sportsgehu.onrender.com";
 const BookingForm = (props) => {
     
     //  const [isBooked, setisBooked] = useState(true);

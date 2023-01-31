@@ -4,7 +4,7 @@ import BookingForm from "../Sports/BookingForm";
 import BookedItem from "./BookedItem";
 import axios from "axios";
 const URL = "https://sportsgehu.onrender.com";
-
+// const URL = "http://localhost:4000";
 
 
 const DUMMY_DATA = [
@@ -87,7 +87,10 @@ const SportItemBoard = (props) => {
   const closeFormHnadler = () => {
     setFormCart(false);
   }
-
+   const [reload , setReload] = useState(false);
+    const reloadHandler = ()=>{
+      setReload(!reload);
+    }
   useEffect(() => {
 
     axios.get(`${URL}/api/booking/bookedSports?sport=${sport}&college=gehu`).then((res) => {
@@ -104,7 +107,7 @@ const SportItemBoard = (props) => {
       console.log(err);
     })
 
-  }, [showForm])
+  }, [showForm , reload ])
 
 
 
@@ -135,11 +138,16 @@ const SportItemBoard = (props) => {
           <div>End Time</div>
           <div>Booked By</div>
           <div>Status</div>
+          <div>Delete</div>
         </div>
         <div className=' '>
           {Booking.map((s) => {
-
-            return <BookedItem data={s} key={s._id} />
+            console.log("s   == " + s);
+            console.log(s);
+            let user = false ;
+            if(+(s.bookedBy) === props.user.id)
+               user = true ;
+            return <BookedItem user={user}  data={s} key={s._id}  reloadHandler={reloadHandler} />
           })}
         </div>
 

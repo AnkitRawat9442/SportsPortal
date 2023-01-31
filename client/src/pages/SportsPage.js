@@ -4,13 +4,13 @@ import Header from "../component/Header";
 
 import { useNavigate } from 'react-router-dom';
 const SportsPage = (props) => {
- 
+
   const navigate = useNavigate();
 
 
 
   const onlogouthandler = () => {
-  
+
     props.UserHandler();
     navigate('/');
   }
@@ -23,7 +23,7 @@ const SportsPage = (props) => {
     <div>
 
       <Header username={props.user.name} onLogout={onlogouthandler} />
-      <SportsList SportHandler={props.SportHandler} />
+      <SportsList user={props.user} SportHandler={props.SportHandler} />
     </div>
 
 

@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import SportItem from './SportItem'
 import Cricket from "../../asset/cricket.jpeg";
 import Chess from "../../asset/chess.jpeg";
@@ -6,10 +6,10 @@ import Badminton from "../../asset/badminton.jpeg";
 import Football from "../../asset/football.jpeg";
 import Carrom from "../../asset/carrom.jpeg";
 import Snooker from "../../asset/snooker.jpeg";
-import Table_tennis from  "../../asset/table_tennis.jpeg";
-import Lawn_tennis from  "../../asset/lwan_tennis.jpeg";
-import Basketball from  "../../asset/basketball.jpeg";
-import Volleyball from  "../../asset/vollyballl.jpeg";
+import Table_tennis from "../../asset/table_tennis.jpeg";
+import Lawn_tennis from "../../asset/lwan_tennis.jpeg";
+import Basketball from "../../asset/basketball.jpeg";
+import Volleyball from "../../asset/vollyballl.jpeg";
 
 
 const DUMMY_DATA = [
@@ -17,8 +17,8 @@ const DUMMY_DATA = [
     id: 1,
     name: "Cricket",
     minimun_Player: 22,
-    src: Cricket ,
-    status : "true",
+    src: Cricket,
+    status: "true",
     clg: "gehu"
   },
   {
@@ -26,7 +26,7 @@ const DUMMY_DATA = [
     name: "Chess",
     minimun_Player: 2,
     src: Chess,
-    status : "true",
+    status: "true",
     clg: "gehu"
   },
   {
@@ -34,16 +34,16 @@ const DUMMY_DATA = [
     name: "Badminton",
     minimun_Player: 2,
     clg: "gehu",
-    status : "false",
+    status: "false",
     src: Badminton,
   },
-  
+
   {
     id: 4,
     name: "Football",
     minimun_Player: 22,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Football,
   },
   {
@@ -51,7 +51,7 @@ const DUMMY_DATA = [
     name: "Vollyball",
     minimun_Player: 14,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Volleyball,
   },
   {
@@ -59,7 +59,7 @@ const DUMMY_DATA = [
     name: "Carrom",
     minimun_Player: 2,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Carrom,
   },
   {
@@ -67,7 +67,7 @@ const DUMMY_DATA = [
     name: "Lawn-Tennis",
     minimun_Player: 2,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Lawn_tennis,
   },
   {
@@ -75,7 +75,7 @@ const DUMMY_DATA = [
     name: "Table-Tennis",
     minimun_Player: 2,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Table_tennis,
   },
   {
@@ -83,7 +83,7 @@ const DUMMY_DATA = [
     name: "Snooker",
     minimun_Player: 2,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Snooker,
   },
   {
@@ -91,21 +91,21 @@ const DUMMY_DATA = [
     name: "Basketball",
     minimun_Player: 14,
     clg: "gehu",
-    status : "true",
+    status: "true",
     src: Basketball,
   },
 
-  
+
 ]
 
 const SportsList = (props) => {
 
-  
-  useEffect(()=>{
-    
-  } , [])
 
-  const gehu = DUMMY_DATA.filter((s) => {
+  useEffect(() => {
+
+  }, [])
+
+  const clg_sports = DUMMY_DATA.filter((s) => {
     return (s.clg === "gehu");
 
   });
@@ -120,16 +120,16 @@ const SportsList = (props) => {
 
   return (
     <section className='bg-gray-700 w-screen h-full pt-10' >
-      <div> 
-    
-      <div className='w-screen h-max grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-x-3 gap-y-14   place-items-center p-5  '>
-        {gehu.map((item) => {
+      <div>
 
-          return <SportItem key={item.id} sport={item}   SportHandler={props.SportHandler} />
-        })}
-      </div></div>
-    
-     
+        <div className='w-screen h-max grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-x-3 gap-y-14   place-items-center p-5  '>
+          {clg_sports.map((item) => {
+
+            return <SportItem  key={item.id} sport={item} SportHandler={props.SportHandler} />
+          })}
+        </div></div>
+
+
 
     </section>
   )

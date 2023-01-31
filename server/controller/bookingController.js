@@ -15,11 +15,11 @@ const player_count = {
 
 
 async function BookedSports(req, res, next) {
-        const { sport , college} = req.query;
+    const { sport, college } = req.query;
     console.log(sport)
     console.log(college)
-    
-    const date = new Date(); 
+
+    const date = new Date();
 
     // await College.find({ collegeName: college, sportsName: sport }).then((result) => {
     //     console.log(result) 
@@ -27,21 +27,21 @@ async function BookedSports(req, res, next) {
     //         res.status(200).json("No booking");
     //        }
     //     res.status(200).json(result);
-      
+
     // }).catch(err=>console.log(err));
-   
-    
-    await College.find({ collegeName: college, sportsName: sport }).sort({date : -1}).then((result) => {
-        console.log(result) 
-        if(result.length ===  0) {
+
+
+    await College.find({ collegeName: college, sportsName: sport }).sort({ date: -1 }).then((result) => {
+        console.log(result)
+        if (result.length === 0) {
             res.status(200).json("No booking");
-           }
+        }
         res.status(200).json(result);
-      
-    }).catch(err=>console.log(err));
-   
-   // res.json("yess...");
-       
+
+    }).catch(err => console.log(err));
+
+    // res.json("yess...");
+
 }
 
 async function addBooking(req, res, next) {
@@ -61,13 +61,13 @@ async function addBooking(req, res, next) {
 
     });
 
-     let User = await Student.findOne({ id: newEntry.bookedBy });
+    let User = await Student.findOne({ id: newEntry.bookedBy });
 
-   //  console.log(User);
-    
+    //  console.log(User);
+
     //   newEntry.save().then((result)=>console.log("savedd ..")).catch(err=>console.log(err));
-    await College.find({ collegeName: collegeName, sportsName: sport , date : date }).then((result) => {
-       console.log(result)
+    await College.find({ collegeName: collegeName, sportsName: sport, date: date }).then((result) => {
+        console.log(result)
         if (result.length === 0) {
 
             newEntry.save().then((result) => {
@@ -78,7 +78,7 @@ async function addBooking(req, res, next) {
             ).catch(err => console.log(err));
         }
         else {
-            for (let i = 0; i < result.length; i++) { 
+            for (let i = 0; i < result.length; i++) {
                 if (newEntry.endTime <= result[i].startTime || newEntry.startTime >= result[i].endTime) {
                     if (i == result.length - 1) {
                         newEntry.save().then((result) => {
@@ -107,7 +107,33 @@ async function addBooking(req, res, next) {
 
 }
 
+
+
+
+async function DeleteBooking(req, res, next) {
+
+    const userid = req.params.id;
+    console.log(userid);
+   
+    await College.findByIdAndDelete(userid).then((docs) => {
+        
+            console.log("Deleted : ", docs);
+            res.status(200).json("query deleted !!!");
+        
+    }).catch(()=>{
+        
+            console.log(err)
+            res.status(500).json("not deleted");
+        
+    })
+
+
+
+}
+
+
 module.exports = {
     addBooking,
-    BookedSports
+    BookedSports,
+    DeleteBooking
 };

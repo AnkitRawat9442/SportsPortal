@@ -3,6 +3,7 @@ import { useNavigate  } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 const URL = "https://sportsgehu.onrender.com";
+// const URL = "http://localhost:4000";
 const Register = () => {
   
   const navigate = useNavigate();

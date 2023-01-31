@@ -4,6 +4,7 @@ import imgsrc from "../../asset/register.gif";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 const URL = "https://sportsgehu.onrender.com";
+// const URL = "http://localhost:4000";
 const Login = (props) => {
 
   const [studentID, setstudentID] = useState("");
@@ -43,7 +44,7 @@ const Login = (props) => {
         }
         console.log("user valid");  
         props.UserHandler(userDATA);
-       
+       console.log(userDATA);
         navigate('sportsportal');
       }
   
@@ -57,14 +58,14 @@ const Login = (props) => {
     setstudentID("");
     setPassword("");
 
-
+    
   }
 
 
 
   return (
     <div>
-      <div className='h-screen w-screen  place-items-center'>
+      <div className='h-screen w-screen  place-items-center '>
         <div className='bg-gray-800 h-screen flex flex-row  justify-center items-center '>
 
           <form className='max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8  border-4 border-white shadow-lg shadow-white ' onSubmit={onSubmitHandler} >

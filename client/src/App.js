@@ -1,4 +1,4 @@
-import React , {useState , useEffect} from "react";
+import React , {useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -17,12 +17,12 @@ function App() {
     setUser(u);
   }
  
-
+  
   const SportHandler = (s)=>{
     console.log(s);
     setSport(s);
   }
-
+  
   return (
     <BrowserRouter>
       <Routes>

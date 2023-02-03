@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import SportItem from './SportItem'
 import Cricket from "../../asset/cricket.jpeg";
 import Chess from "../../asset/chess.jpeg";
@@ -100,30 +100,12 @@ const DUMMY_DATA = [
 
 const SportsList = (props) => {
 
-
-  useEffect(() => {
-
-  }, [])
-
-  const clg_sports = DUMMY_DATA.filter((s) => {
-    return (s.clg === "gehu");
-
-  });
-  // const geu = DUMMY_DATA.filter((s) => {
-  //   return (s.clg === "geu");
-
-  // });
-  // const geub = DUMMY_DATA.filter((s) => {
-  //   return (s.clg === "geub");
-
-  // });
-
   return (
     <section className='bg-gray-700 w-screen h-full pt-10' >
       <div>
 
         <div className='w-screen h-max grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-x-3 gap-y-14   place-items-center p-5  '>
-          {clg_sports.map((item) => {
+          {DUMMY_DATA.map((item) => {
 
             return <SportItem  key={item.id} sport={item} SportHandler={props.SportHandler} />
           })}

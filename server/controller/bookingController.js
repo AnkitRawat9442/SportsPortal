@@ -21,14 +21,7 @@ async function BookedSports(req, res, next) {
 
     const date = new Date();
 
-    // await College.find({ collegeName: college, sportsName: sport }).then((result) => {
-    //     console.log(result) 
-    //     if(result.length ===  0) {
-    //         res.status(200).json("No booking");
-    //        }
-    //     res.status(200).json(result);
 
-    // }).catch(err=>console.log(err));
 
 
     await College.find({ collegeName: college, sportsName: sport }).sort({ date: -1 }).then((result) => {
@@ -114,19 +107,30 @@ async function DeleteBooking(req, res, next) {
 
     const userid = req.params.id;
     console.log(userid);
-   
+
     await College.findByIdAndDelete(userid).then((docs) => {
-        
-            console.log("Deleted : ", docs);
-            res.status(200).json("query deleted !!!");
-        
-    }).catch(()=>{
-        
-            console.log(err)
-            res.status(500).json("not deleted");
-        
+
+        console.log("Deleted : ", docs);
+        res.status(200).json("query deleted !!!");
+
+    }).catch(() => {
+
+        console.log(err)
+        res.status(500).json("not deleted");
+
     })
 
+
+
+}
+
+async function allBooking (req , res , next){
+   const clg = req.params.clg;
+   console.log(req.params.clg);
+
+   const booking = await College.find({collegeName : clg}).sort({ date: -1 })
+    if(booking) return res.status(200).json(booking);
+    else return res.status(400).json("no booking !!!!");
 
 
 }
@@ -135,5 +139,6 @@ async function DeleteBooking(req, res, next) {
 module.exports = {
     addBooking,
     BookedSports,
-    DeleteBooking
+    DeleteBooking,
+    allBooking
 };

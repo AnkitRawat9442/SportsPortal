@@ -85,7 +85,10 @@ const Login = (props) => {
             <button type='submit' className='w-full my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500/40 text-white font-semibold rounded-lg' >
               Login
             </button>
-            <Link className='text-white text-sm hover:text-red-700' to="/register"> SignUp </Link>
+           <div className='flex flex-row justify-between'>
+           <Link className='text-white text-sm hover:text-red-700' to="/register"> SignUp </Link>
+            <Link className='text-white text-sm hover:text-blue-700' to="/adminauth"> Admin </Link>
+           </div>
             <div className='text-center text-white'>copyright @ 2022 </div>
           </form>
           <div className='max-w-[400px] p-10 flex justify-center'>

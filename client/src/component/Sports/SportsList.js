@@ -107,9 +107,10 @@ const SportsList = (props) => {
         <div className='w-screen h-max grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-x-3 gap-y-14   place-items-center p-5  '>
           {DUMMY_DATA.map((item) => {
 
-            return <SportItem  key={item.id} sport={item} SportHandler={props.SportHandler} />
+            return <SportItem key={item.id} sport={item} SportHandler={props.SportHandler} />
           })}
-        </div></div>
+        </div>
+      </div>
 
 
 

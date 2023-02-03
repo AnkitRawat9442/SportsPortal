@@ -131,7 +131,7 @@ const SportItemBoard = (props) => {
         if (s.name === sport) {
           return (<div className='w-full text-center text-xl '> Minimun Player Required : {s.minimun_Player} </div>);
         }
-        return 1;
+        
       })}
       {Booking.length > 0 && <div className='container m-5 mx-auto   border-4 border-black'>
         <div className='flex flex-row justify-between items-center px-4 py-2  pr-12 border-b-4 border-black text-xl font-bold'>
